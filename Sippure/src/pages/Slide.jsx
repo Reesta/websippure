@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-// Define the slides with their URLs
+
 const slides = [
   {
     id: 1,
@@ -26,7 +26,7 @@ export default function Slider() {
   const [current, setCurrent] = useState(0);
   const [imageErrors, setImageErrors] = useState({});
 
-  // Auto-advance every 4 seconds
+  
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
@@ -63,7 +63,7 @@ export default function Slider() {
             </div>
           )}
 
-          {/* Slide Text Content */}
+          
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 drop-shadow-md">
               {slide.title}
@@ -75,7 +75,7 @@ export default function Slider() {
         </div>
       ))}
 
-      {/* Dots Indicator */}
+      
       <div className="absolute bottom-6 w-full flex justify-center gap-2 z-20">
         {slides.map((_, index) => (
           <button

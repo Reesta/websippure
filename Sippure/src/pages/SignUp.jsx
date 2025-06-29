@@ -54,16 +54,16 @@ const SignUpForm = () => {
         <h1 className="text-4xl text-center mb-10 font-bold">Sign Up</h1>
 
         <form className="flex flex-col">
-          {/* Name Fields */}
+          
           <div className="flex gap-5 mb-6">
             <InputField label="First Name" />
             <InputField label="Last Name" />
           </div>
 
-          {/* Email */}
+          
           <InputField label="Email" type="email" />
 
-          {/* Password */}
+          
           <InputField
             label="Password"
             showToggle
@@ -72,7 +72,7 @@ const SignUpForm = () => {
             note="Password must be at least 6 characters"
           />
 
-          {/* Confirm Password */}
+          
           <InputField
             label="Confirm Password"
             showToggle
@@ -80,7 +80,7 @@ const SignUpForm = () => {
             toggleHandler={() => setShowConfirmPassword(!showConfirmPassword)}
           />
 
-          {/* Submit Button */}
+          
           <button
             type="submit"
             className="bg-[#a4d57c] text-black py-3 px-5 rounded-full text-lg font-medium mx-auto mt-4 hover:bg-[#95cb6a] transition-colors"

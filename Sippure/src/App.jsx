@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
 import Welcome from './pages/Welcome.jsx';
 import Gallery from './pages/Gallery.jsx';
-import MissionPage from './pages/MissionPage.jsx';
+
 import Product from './pages/Products.jsx';
 import Menu from './pages/Menu.jsx';
 import About from './pages/About.jsx';
@@ -31,14 +31,7 @@ const router = createBrowserRouter([
       </MainLayout>
     ),
   },
-  {
-    path: '/mission',
-    element: (
-      <MainLayout>
-        <MissionPage />
-      </MainLayout>
-    ),
-  },
+ 
   {
     path: '/menu',
     element: (

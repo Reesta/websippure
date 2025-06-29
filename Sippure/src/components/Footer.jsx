@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="max-w-screen-xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
 
-          {/* Brand Section */}
+         
           <div>
             <h2 className="text-2xl font-bold mb-4">Sippure</h2>
             <p className="text-sm leading-relaxed">
@@ -15,7 +15,7 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Contact Section */}
+         
           <div>
             <h3 className="text-xl font-semibold mb-4">Get in Touch</h3>
             <ul className="text-sm space-y-3">
@@ -58,14 +58,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* You can add a third section here if needed */}
-          <div>
-            {/* Optional extra content, or leave empty */}
-          </div>
-
         </div>
-
-        {/* Copyright */}
         <div className="text-center text-sm text-[#333] mt-10">
           © {new Date().getFullYear()} Sippure Tea Shop. All rights reserved.
         </div>

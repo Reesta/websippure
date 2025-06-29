@@ -85,7 +85,7 @@ const SignInPage = () => {
             }}
           >
             <div className="space-y-6">
-              {/* Email */}
+              
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                   Email address
@@ -114,7 +114,6 @@ const SignInPage = () => {
                 )}
               </div>
 
-              {/* Password */}
               <div>
                 <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
                   Password
@@ -154,7 +153,7 @@ const SignInPage = () => {
                 )}
               </div>
 
-              {/* Remember & Forgot */}
+             
               <div className="flex items-center justify-between">
                 <label className="flex items-center">
                   <input
@@ -172,7 +171,7 @@ const SignInPage = () => {
                 </button>
               </div>
 
-              {/* Submit Button */}
+              
               <button
                 type="submit"
                 disabled={isLoading}

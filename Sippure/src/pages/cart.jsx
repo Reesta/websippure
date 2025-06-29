@@ -28,7 +28,7 @@ export default function CartPage() {
     reviews: 214,
     description:
       "Experience the pure essence of nature with our Sippure Herbal Infusion — a premium blend of organic herbs carefully selected to relax your body and refresh your mind. Each cup delivers a perfect harmony of flavor and wellness benefits.",
-    mainImage: "Images/piledhibis.png", // Images in public folder
+    mainImage: "Images/piledhibis.png", 
     galleryImages: [
       "Images/MatchaMenu.png",
       "Images/PeachIced.png",
@@ -76,7 +76,7 @@ export default function CartPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-green-50">
-      {/* Header */}
+      
       <header className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-4">
@@ -107,12 +107,12 @@ export default function CartPage() {
         </div>
       </header>
 
-      {/* Main Content */}
+      
       <main className="max-w-7xl mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Image Section */}
+          
           <div className="space-y-6">
-            {/* Main Product Image */}
+            
             <div className="aspect-square rounded-2xl overflow-hidden bg-white shadow-lg flex items-center justify-center">
               <img
                 src={product.mainImage}
@@ -121,7 +121,7 @@ export default function CartPage() {
               />
             </div>
 
-            {/* Gallery Images */}
+            
             <div className="grid grid-cols-4 gap-3">
               {product.galleryImages.map((image, index) => (
                 <div
@@ -137,7 +137,7 @@ export default function CartPage() {
               ))}
             </div>
 
-            {/* Features Icons */}
+            
             <div className="grid grid-cols-3 gap-4 pt-6">
               <div className="flex flex-col items-center text-center p-4 bg-white rounded-lg shadow-sm">
                 <Shield className="w-8 h-8 text-emerald-600 mb-2" />
@@ -169,9 +169,9 @@ export default function CartPage() {
             </div>
           </div>
 
-          {/* Product Details Section */}
+          
           <div className="space-y-8">
-            {/* Product Info */}
+            
             <div className="space-y-4">
               <div className="flex items-center gap-3 text-sm">
                 <span className="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full font-medium">
@@ -203,7 +203,7 @@ export default function CartPage() {
               </p>
             </div>
 
-            {/* Price Section */}
+            
             <div className="bg-white p-6 rounded-2xl shadow-lg border">
               <div className="flex items-center justify-between mb-4">
                 <div className="space-y-2">
@@ -234,7 +234,7 @@ export default function CartPage() {
               </div>
             </div>
 
-            {/* Herb Selection */}
+            
             <div className="space-y-4">
               <h3 className="text-xl font-semibold text-gray-900">
                 Choose Your Herb Blend
@@ -265,7 +265,7 @@ export default function CartPage() {
               </div>
             </div>
 
-            {/* Sweetness Level */}
+            
             <div className="space-y-4">
               <h3 className="text-xl font-semibold text-gray-900">
                 Sweetness Level
@@ -287,7 +287,7 @@ export default function CartPage() {
               </div>
             </div>
 
-            {/* Quantity & Add to Cart */}
+            
             <div className="space-y-6">
               <div className="flex items-center justify-between bg-white p-6 rounded-xl shadow-md border">
                 <span className="text-xl font-semibold text-gray-900">
