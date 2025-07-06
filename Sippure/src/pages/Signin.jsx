@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { FaEye, FaLock } from "react-icons/fa";
 import { IoEyeOff } from "react-icons/io5";
 import { MdAttachEmail } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignInPage = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -44,21 +47,30 @@ const SignInPage = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     if (!validateForm()) return;
 
     setIsLoading(true);
 
-    setTimeout(() => {
-      console.log("Signin attempt:", formData);
-      setIsLoading(false);
-      alert("Login successful! Check console for form data.");
-    }, 1500);
-  };
+    try {
+      const response = await axios.post("http://localhost:3000/api/login", {
+        email: formData.email,
+        password: formData.password,
+      });
 
-  const handleKeyPress = (e) => {
-    if (e.key === "Enter") {
-      handleSubmit();
+      alert("Login successful!");
+      console.log("Login success:", response.data);
+
+      // Example: store token or redirect
+      // localStorage.setItem("token", response.data.token);
+      navigate("/dashboard");
+
+    } catch (error) {
+      console.error("Login failed:", error.response?.data || error.message);
+      alert(error.response?.data?.message || "Login failed");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -78,14 +90,9 @@ const SignInPage = () => {
         </div>
 
         <div className="bg-[#e3f5d4] rounded-2xl shadow-xl p-8 border border-gray-100">
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleSubmit();
-            }}
-          >
+          <form onSubmit={handleSubmit}>
             <div className="space-y-6">
-              
+              {/* Email */}
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                   Email address
@@ -100,8 +107,7 @@ const SignInPage = () => {
                     type="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    onKeyPress={handleKeyPress}
-                    className={`w-full pl-10 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all bg-white`}
+                    className="w-full pl-10 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white"
                     placeholder="Enter your email"
                     aria-invalid={!!errors.email}
                     aria-describedby="email-error"
@@ -114,6 +120,7 @@ const SignInPage = () => {
                 )}
               </div>
 
+              {/* Password */}
               <div>
                 <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
                   Password
@@ -128,8 +135,7 @@ const SignInPage = () => {
                     type={showPassword ? "text" : "password"}
                     value={formData.password}
                     onChange={handleInputChange}
-                    onKeyPress={handleKeyPress}
-                    className="w-full pl-10 pr-12 py-3 border rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all bg-white"
+                    className="w-full pl-10 pr-12 py-3 border rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white"
                     placeholder="Enter your password"
                     aria-invalid={!!errors.password}
                     aria-describedby="password-error"
@@ -153,25 +159,25 @@ const SignInPage = () => {
                 )}
               </div>
 
-             
+              {/* Remember Me / Forgot */}
               <div className="flex items-center justify-between">
                 <label className="flex items-center">
                   <input
                     type="checkbox"
-                    className="w-4 h-4 text-blue-300 border-gray-300 rounded focus:ring-blue-300"
+                    className="w-4 h-4 text-green-500 border-gray-300 rounded focus:ring-green-500"
                   />
                   <span className="ml-2 text-sm text-gray-600">Remember me</span>
                 </label>
                 <button
                   type="button"
                   className="text-sm text-blue-300 hover:text-blue-400 font-medium"
-                  onClick={() => alert("Forgot password functionality would go here")}
+                  onClick={() => alert("Forgot password functionality not implemented yet.")}
                 >
                   Forgot password?
                 </button>
               </div>
 
-              
+              {/* Submit Button */}
               <button
                 type="submit"
                 disabled={isLoading}
@@ -190,6 +196,7 @@ const SignInPage = () => {
             </div>
           </form>
 
+          {/* Footer Link */}
           <p className="mt-8 text-center text-sm text-gray-600">
             Don't have an account?{" "}
             <Link
